@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 [CreateAssetMenu(menuName ="Behaviours/Player/Mowe/PlayerPCMoweBehaviour")]
 public class PlayerPCMoweBehaviour: MoweBehaviour

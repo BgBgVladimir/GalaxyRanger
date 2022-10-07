@@ -674,7 +674,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -782,6 +782,7 @@ MonoBehaviour:
   damage: 100
   _moweBehaviour: {fileID: 11400000, guid: d044d4942a3d33a4e992f4d48955e542, type: 2}
   _rotationBehaviour: {fileID: 11400000, guid: d55b5e790dc925442a926e04060a9361, type: 2}
+  _attackBehaviour: {fileID: 11400000, guid: 2a930c6d13c17494891fc0cd72a7f0f0, type: 2}
 --- !u!58 &697227896
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1123,6 +1124,7 @@ MonoBehaviour:
   damage: 100
   _moweBehaviour: {fileID: 11400000, guid: 05eeed56d66f15a4195e7f43643f1041, type: 2}
   _rotationBehaviour: {fileID: 11400000, guid: 6694fb0cd8cc5e045b1b780f08351479, type: 2}
+  _attackBehaviour: {fileID: 0}
 --- !u!50 &1734799866
 Rigidbody2D:
   serializedVersion: 4

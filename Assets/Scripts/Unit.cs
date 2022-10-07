@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -9,6 +7,7 @@ public class Unit : MonoBehaviour
     [SerializeField] private int damage = 100;
     [SerializeField] private MoweBehaviour _moweBehaviour;
     [SerializeField] private RotationBehaviour _rotationBehaviour;
+    [SerializeField] private AttackBehaviour _attackBehaviour;
 
     private void OnEnable()
     {
@@ -21,6 +20,9 @@ public class Unit : MonoBehaviour
 
         if(_rotationBehaviour != null && _rotationBehaviour._transform==null) InitRotationBehaviour();
         _rotationBehaviour?.Rotate();
+
+        if(_attackBehaviour!=null&&_attackBehaviour._transform==null) InitAttackBehaviour();
+        _attackBehaviour?.Attack();
     }
     private void OnDisable()
     {
@@ -36,5 +38,10 @@ public class Unit : MonoBehaviour
     {
         _rotationBehaviour=Instantiate(_rotationBehaviour);
         _rotationBehaviour.Init(transform);
+    }
+    private void InitAttackBehaviour()
+    {
+        _attackBehaviour=Instantiate(_attackBehaviour);
+        _attackBehaviour.Init(transform);
     }
 }
