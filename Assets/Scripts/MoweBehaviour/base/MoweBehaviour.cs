@@ -9,4 +9,11 @@ public abstract class MoweBehaviour : ScriptableObject
 
     public abstract void Init(Rigidbody2D rigidBody2D);
     public abstract void Mowe();
+
+    public virtual void SetTarget(Transform transformTarget)
+    {
+    }
+    public virtual void SetTarget(Vector2 positionTarget)
+    {
+    }
 }

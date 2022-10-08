@@ -5,11 +5,11 @@ public class Unit : MonoBehaviour
 {
     [SerializeField] private int health = 600;
     [SerializeField] private int damage = 100;
-    [SerializeField] private MoweBehaviour _moweBehaviour;
-    [SerializeField] private RotationBehaviour _rotationBehaviour;
-    [SerializeField] private AttackBehaviour _attackBehaviour;
+    public MoweBehaviour _moweBehaviour;
+    public RotationBehaviour _rotationBehaviour;
+    public AttackBehaviour _attackBehaviour;
 
-    private void OnEnable()
+    private void Start()
     {
         Services.Units.Add(this);
     }
@@ -33,6 +33,7 @@ public class Unit : MonoBehaviour
     {
         _moweBehaviour=Instantiate(_moweBehaviour);
         _moweBehaviour.Init(GetComponent<Rigidbody2D>());
+       // _moweBehaviour.SetTarget(Services.instance.Player.transform);
     }
     private void InitRotationBehaviour()
     {

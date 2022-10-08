@@ -9,9 +9,26 @@ public class PlayerPCAttackBehaviour :AttackBehaviour
     }
     public override void Attack()
     {
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButtonDown(0))
         {
+            Transform targetTransform = getClickedObject(Services.MainCamera.ScreenToWorldPoint(Input.mousePosition));
+            if(targetTransform==null) return;
+
             GameObject shot = GameObject.Instantiate(shotPrefab,_transform.position,Quaternion.identity);
+            Unit shotUnit = shot.GetComponent<Unit>();
+            shotUnit._moweBehaviour.SetTarget(targetTransform);
+            shotUnit._rotationBehaviour.SetTarget(targetTransform);
         }
+    }
+
+    private Transform getClickedObject(Vector2 attackPosition)
+    {
+        RaycastHit2D ray;
+        Collider2D colliders= Physics2D.OverlapPoint(attackPosition);
+        if(colliders!=null)
+        {
+            return colliders.gameObject.transform;
+        }
+        return null;
     }
 }

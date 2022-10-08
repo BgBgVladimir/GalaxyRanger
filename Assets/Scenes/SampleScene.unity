@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 99282118}
   - component: {fileID: 99282117}
   m_Layer: 0
-  m_Name: background
+  m_Name: Sprite(BackGround)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -310,13 +310,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99282116}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1851842998}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1122,7 +1122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 600
   damage: 100
-  _moweBehaviour: {fileID: 11400000, guid: 05eeed56d66f15a4195e7f43643f1041, type: 2}
+  _moweBehaviour: {fileID: 11400000, guid: d0a281a257491cc42bdc1e8b9873006c, type: 2}
   _rotationBehaviour: {fileID: 11400000, guid: 6694fb0cd8cc5e045b1b780f08351479, type: 2}
   _attackBehaviour: {fileID: 0}
 --- !u!50 &1734799866
@@ -1236,6 +1236,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2056123985}
+  - {fileID: 99282118}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
