@@ -23,7 +23,6 @@ public class PlayerPCAttackBehaviour :AttackBehaviour
 
     private Transform getClickedObject(Vector2 attackPosition)
     {
-        RaycastHit2D ray;
         Collider2D colliders= Physics2D.OverlapPoint(attackPosition);
         if(colliders!=null)
         {

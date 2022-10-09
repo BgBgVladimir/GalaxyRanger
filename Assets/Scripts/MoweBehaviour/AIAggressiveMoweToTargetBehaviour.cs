@@ -22,6 +22,5 @@ public class AIAggressiveMoweToTargetBehaviour: MoweBehaviour
     public override void SetTarget(Transform target)
     {
         _target=target;
-        Debug.Log($"setted target {_target?.name}");
     }
 }

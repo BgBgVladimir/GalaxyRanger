@@ -28,12 +28,15 @@ public class Unit : MonoBehaviour
     {
         Services.Units.Remove(this);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log($"Colission with {collision.collider.name}");
+    }
 
     private void InitMoweBehaviour()
     {
         _moweBehaviour=Instantiate(_moweBehaviour);
         _moweBehaviour.Init(GetComponent<Rigidbody2D>());
-       // _moweBehaviour.SetTarget(Services.instance.Player.transform);
     }
     private void InitRotationBehaviour()
     {
