@@ -18,6 +18,7 @@ public class PlayerPCAttackBehaviour :AttackBehaviour
             Unit shotUnit = shot.GetComponent<Unit>();
             shotUnit._moweBehaviour.SetTarget(targetTransform);
             shotUnit._rotationBehaviour.SetTarget(targetTransform);
+            shotUnit._collisionBehaviour.AddIgnorableTag(TagsList.player);
         }
     }
 

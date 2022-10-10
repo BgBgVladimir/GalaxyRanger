@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1495083843641976711}
   m_Layer: 0
   m_Name: Shot
-  m_TagString: Untagged
+  m_TagString: shot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +104,7 @@ MonoBehaviour:
   _moweBehaviour: {fileID: 11400000, guid: d0a281a257491cc42bdc1e8b9873006c, type: 2}
   _rotationBehaviour: {fileID: 11400000, guid: 507cb376198e9f1469186fa63bedf9aa, type: 2}
   _attackBehaviour: {fileID: 0}
+  _collisionBehaviour: {fileID: 11400000, guid: 50bd302a6d31fda46b029aaac18a3640, type: 2}
 --- !u!50 &1495083843641976710
 Rigidbody2D:
   serializedVersion: 4

@@ -8,6 +8,7 @@ public class Unit : MonoBehaviour
     public MoweBehaviour _moweBehaviour;
     public RotationBehaviour _rotationBehaviour;
     public AttackBehaviour _attackBehaviour;
+    public CollisionBehaviour _collisionBehaviour;
 
     private void Start()
     {
@@ -28,9 +29,11 @@ public class Unit : MonoBehaviour
     {
         Services.Units.Remove(this);
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log($"Colission with {collision.collider.name}");
+        if(_collisionBehaviour!=null&&_collisionBehaviour.unit==null) InitCollisionBehaviour();
+        _collisionBehaviour?.OnCollisionEnter2D(collision);
     }
 
     private void InitMoweBehaviour()
@@ -47,5 +50,10 @@ public class Unit : MonoBehaviour
     {
         _attackBehaviour=Instantiate(_attackBehaviour);
         _attackBehaviour.Init(transform);
+    }
+    private void InitCollisionBehaviour()
+    {
+        _collisionBehaviour=Instantiate(_collisionBehaviour);
+        _collisionBehaviour.Init(this);
     }
 }

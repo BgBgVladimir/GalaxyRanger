@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 80769424}
   m_Layer: 0
   m_Name: Square (3)
-  m_TagString: Untagged
+  m_TagString: other
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 637183885}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: other
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -673,7 +673,7 @@ GameObject:
   - component: {fileID: 697227896}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -783,6 +783,7 @@ MonoBehaviour:
   _moweBehaviour: {fileID: 11400000, guid: d044d4942a3d33a4e992f4d48955e542, type: 2}
   _rotationBehaviour: {fileID: 11400000, guid: d55b5e790dc925442a926e04060a9361, type: 2}
   _attackBehaviour: {fileID: 11400000, guid: 2a930c6d13c17494891fc0cd72a7f0f0, type: 2}
+  _collisionBehaviour: {fileID: 0}
 --- !u!58 &697227896
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -812,7 +813,7 @@ GameObject:
   - component: {fileID: 810608809}
   m_Layer: 0
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: other
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -923,7 +924,7 @@ GameObject:
   - component: {fileID: 934812984}
   m_Layer: 0
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: other
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1036,7 +1037,7 @@ GameObject:
   - component: {fileID: 1734799867}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1125,6 +1126,7 @@ MonoBehaviour:
   _moweBehaviour: {fileID: 11400000, guid: d0a281a257491cc42bdc1e8b9873006c, type: 2}
   _rotationBehaviour: {fileID: 11400000, guid: 6694fb0cd8cc5e045b1b780f08351479, type: 2}
   _attackBehaviour: {fileID: 0}
+  _collisionBehaviour: {fileID: 0}
 --- !u!50 &1734799866
 Rigidbody2D:
   serializedVersion: 4
@@ -1218,7 +1220,7 @@ GameObject:
   - component: {fileID: 1851842998}
   m_Layer: 0
   m_Name: Level
-  m_TagString: Untagged
+  m_TagString: other
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1251,7 +1253,7 @@ GameObject:
   - component: {fileID: 2056123985}
   m_Layer: 0
   m_Name: walls
-  m_TagString: Untagged
+  m_TagString: other
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
