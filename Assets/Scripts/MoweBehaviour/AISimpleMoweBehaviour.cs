@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 [CreateAssetMenu(menuName ="Behaviours/AI/Mowe/AISimpleMoweBehaviour")]
 public class AISimpleMoweBehaviour : MoweBehaviour

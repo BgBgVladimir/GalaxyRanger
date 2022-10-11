@@ -1,10 +1,10 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Unit : MonoBehaviour
+public class Unit:MonoBehaviour
 {
-    [SerializeField] private int health = 600;
-    [SerializeField] private int damage = 100;
+    [SerializeField] public int health { get; private set; } = 600;
+    [SerializeField] public int damage { get; private set; } = 100;
     public MoweBehaviour _moweBehaviour;
     public RotationBehaviour _rotationBehaviour;
     public AttackBehaviour _attackBehaviour;
@@ -56,4 +56,14 @@ public class Unit : MonoBehaviour
         _collisionBehaviour=Instantiate(_collisionBehaviour);
         _collisionBehaviour.Init(this);
     }
+
+    public void Kill()
+    {
+        Destroy(this.gameObject);
+    }
+    public void TakeDamage(float damageAmount)
+    {
+        health-=(int)damageAmount;
+    }
+
 }

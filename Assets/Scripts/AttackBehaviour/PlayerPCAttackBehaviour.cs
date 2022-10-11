@@ -11,17 +11,21 @@ public class PlayerPCAttackBehaviour :AttackBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Transform targetTransform = getClickedObject(Services.MainCamera.ScreenToWorldPoint(Input.mousePosition));
-            if(targetTransform==null) return;
-
-            GameObject shot = GameObject.Instantiate(shotPrefab,_transform.position,Quaternion.identity);
-            Unit shotUnit = shot.GetComponent<Unit>();
-            shotUnit._moweBehaviour.SetTarget(targetTransform);
-            shotUnit._rotationBehaviour.SetTarget(targetTransform);
-            shotUnit._collisionBehaviour.AddIgnorableTag(TagsList.player);
+            createBullet();
         }
     }
+    private void createBullet()
+    {
+        Transform targetTransform = getClickedObject(Services.MainCamera.ScreenToWorldPoint(Input.mousePosition));
+        if(targetTransform==null) return;
 
+        GameObject shot = GameObject.Instantiate(shotPrefab,_transform.position,Quaternion.identity);
+        Unit shotUnit = shot.GetComponent<Unit>();
+        shotUnit._moweBehaviour.SetTarget(targetTransform);
+        shotUnit._rotationBehaviour.SetTarget(targetTransform);
+        shotUnit._collisionBehaviour.AddIgnorableTag(TagsList.player);
+        shotUnit._collisionBehaviour.AddIgnorableTag(TagsList.other);
+    }
     private Transform getClickedObject(Vector2 attackPosition)
     {
         Collider2D colliders= Physics2D.OverlapPoint(attackPosition);

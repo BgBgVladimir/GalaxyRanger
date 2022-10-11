@@ -8,7 +8,8 @@ public class ExplosiveCollisionBehaviour : CollisionBehaviour
     {
         if(CompareTag(collision.gameObject.tag))
         {
-            Debug.Log($"detection {collision.gameObject.tag}");
+            collision.gameObject.GetComponent<Unit>().TakeDamage(unit.damage);
+            unit.Kill();
         }
     }
 }
