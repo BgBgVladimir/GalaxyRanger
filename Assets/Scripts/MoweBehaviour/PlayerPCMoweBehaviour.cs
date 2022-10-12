@@ -3,11 +3,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="Behaviours/Player/Mowe/PlayerPCMoweBehaviour")]
 public class PlayerPCMoweBehaviour: MoweBehaviour
 {
-    public override void Init(Rigidbody2D rigidbody2D)
+    public override void Init(Unit _unit)
     {
-        _rigidBody2D = rigidbody2D;
+        unit=_unit;
+        rigidBody2D = _unit.GetComponent<Rigidbody2D>();
     }
-    public override void Mowe()
+    public override void Update()
     {
         if(Input.GetKey(KeyCode.W))
         {
@@ -29,6 +30,6 @@ public class PlayerPCMoweBehaviour: MoweBehaviour
     }
     private void addForce(Vector2 _moweVector)
     {
-        _rigidBody2D.AddForce(_moweVector*moweSpeed);
+        rigidBody2D.AddForce(_moweVector*moweSpeed);
     }
 }

@@ -1,11 +1,15 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Behaviours/Player/Attack/PlayerPCAttackBehaviour")]
 public class PlayerPCAttackBehaviour :AttackBehaviour
 {
-    public override void Init(Transform transform)
+    [SerializeField] private TagFilter canAttackTag;
+
+    public override void Init(Unit _unit)
     {
-        _transform=transform;
+        unit=_unit;
+        _transform=_unit.transform;
     }
     public override void Attack()
     {
@@ -18,9 +22,11 @@ public class PlayerPCAttackBehaviour :AttackBehaviour
     {
         Transform targetTransform = getClickedObject(Services.MainCamera.ScreenToWorldPoint(Input.mousePosition));
         if(targetTransform==null) return;
+        if(!canAttackTag.HasTag(targetTransform.tag)) return;
 
         GameObject shot = GameObject.Instantiate(shotPrefab,_transform.position,Quaternion.identity);
         Unit shotUnit = shot.GetComponent<Unit>();
+        shotUnit.ForceInitBehaviours();
         shotUnit._moweBehaviour.SetTarget(targetTransform);
         shotUnit._rotationBehaviour.SetTarget(targetTransform);
         shotUnit._collisionBehaviour.AddIgnorableTag(TagsList.player);

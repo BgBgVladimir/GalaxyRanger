@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public abstract class AttackBehaviour:ScriptableObject
+public abstract class AttackBehaviour:ScriptableBehaviour
 {
     public Transform _transform;
     public GameObject shotPrefab;
 
-    public abstract void Init(Transform transform);
+    public override void Init(Unit _unit)
+    {
+
+    }
     public abstract void Attack();
 }

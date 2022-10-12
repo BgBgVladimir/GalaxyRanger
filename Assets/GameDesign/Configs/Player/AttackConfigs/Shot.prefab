@@ -99,12 +99,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41bbed5d2808ff449165cae016b4d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 600
-  damage: 100
+  health: 0
+  damage: 25
   _moweBehaviour: {fileID: 11400000, guid: d0a281a257491cc42bdc1e8b9873006c, type: 2}
   _rotationBehaviour: {fileID: 11400000, guid: 507cb376198e9f1469186fa63bedf9aa, type: 2}
   _attackBehaviour: {fileID: 0}
   _collisionBehaviour: {fileID: 11400000, guid: 50bd302a6d31fda46b029aaac18a3640, type: 2}
+  _destroyBehaviour: {fileID: 11400000, guid: 0cd7f8c431987f344a54c64d58d64b5f, type: 2}
 --- !u!50 &1495083843641976710
 Rigidbody2D:
   serializedVersion: 4
@@ -136,7 +137,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

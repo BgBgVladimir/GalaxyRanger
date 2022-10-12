@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3331f728cc487fe42b86162af7d07558, type: 3}
   m_Name: Player PC Attack Behaviour
   m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  mainInstance: 1
   _transform: {fileID: 0}
   shotPrefab: {fileID: 1495083843641976714, guid: ed8edef42eaf4fd4eb73664caf8da7d8, type: 3}
+  canAttackTag:
+    tags: 01000000

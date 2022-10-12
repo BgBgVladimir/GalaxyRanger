@@ -669,8 +669,8 @@ GameObject:
   - component: {fileID: 697227892}
   - component: {fileID: 697227891}
   - component: {fileID: 697227894}
-  - component: {fileID: 697227895}
   - component: {fileID: 697227896}
+  - component: {fileID: 697227895}
   m_Layer: 0
   m_Name: Player
   m_TagString: player
@@ -778,10 +778,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41bbed5d2808ff449165cae016b4d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 600
+  damage: 100
   _moweBehaviour: {fileID: 11400000, guid: d044d4942a3d33a4e992f4d48955e542, type: 2}
   _rotationBehaviour: {fileID: 11400000, guid: d55b5e790dc925442a926e04060a9361, type: 2}
   _attackBehaviour: {fileID: 11400000, guid: 2a930c6d13c17494891fc0cd72a7f0f0, type: 2}
   _collisionBehaviour: {fileID: 0}
+  _destroyBehaviour: {fileID: 11400000, guid: 9e2cb53970bcf35439dcd73e80024c6f, type: 2}
 --- !u!58 &697227896
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1030,9 +1033,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1734799864}
   - component: {fileID: 1734799863}
-  - component: {fileID: 1734799865}
   - component: {fileID: 1734799866}
   - component: {fileID: 1734799867}
+  - component: {fileID: 1734799865}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: enemy
@@ -1119,10 +1122,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41bbed5d2808ff449165cae016b4d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moweBehaviour: {fileID: 11400000, guid: d0a281a257491cc42bdc1e8b9873006c, type: 2}
+  health: 600
+  damage: 100
+  _moweBehaviour: {fileID: 11400000, guid: 05eeed56d66f15a4195e7f43643f1041, type: 2}
   _rotationBehaviour: {fileID: 11400000, guid: 6694fb0cd8cc5e045b1b780f08351479, type: 2}
   _attackBehaviour: {fileID: 11400000, guid: b509ddaac18e95a4ebe1fee6dd2acab4, type: 2}
   _collisionBehaviour: {fileID: 0}
+  _destroyBehaviour: {fileID: 11400000, guid: 9e2cb53970bcf35439dcd73e80024c6f, type: 2}
 --- !u!50 &1734799866
 Rigidbody2D:
   serializedVersion: 4

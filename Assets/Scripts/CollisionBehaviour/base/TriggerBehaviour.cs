@@ -2,18 +2,14 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CollisionBehaviour:ScriptableObject
+public abstract class TriggerBehaviour:ScriptableBehaviour
 {
-    public Unit unit;
     [SerializeField] protected TagFilter detectableTag;
     [SerializeField] protected TagFilter ignorableTag;
 
-    public virtual void Init(Unit _unit)
+    public override void Init(Unit _unit)
     {
-        unit=_unit;
     }
-
-    public abstract void OnCollisionEnter2D(Collision2D collision);
 
     public virtual void AddDetectableTag(string tag)
     {

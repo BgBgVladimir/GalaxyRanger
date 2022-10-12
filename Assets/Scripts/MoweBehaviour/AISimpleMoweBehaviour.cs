@@ -5,16 +5,17 @@ using System.Collections;
 public class AISimpleMoweBehaviour : MoweBehaviour
 {
     private Vector2 _moweVector;
-    public override void Init(Rigidbody2D rigidbody2D)
+    public override void Init(Unit _unit)
     {
-        _rigidBody2D = rigidbody2D;
-        _rigidBody2D.gameObject.GetComponent<Unit>().StartCoroutine(_VectorRandomizer());
+        unit=_unit;
+        rigidBody2D=_unit.GetComponent<Rigidbody2D>();
+        unit.StartCoroutine(_VectorRandomizer());
     }
-    public override void Mowe()
+    public override void Update()
     {
-        _rigidBody2D.AddForce(_moweVector*moweSpeed);
+        rigidBody2D.AddForce(_moweVector*moweSpeed);
     }
-    private IEnumerator _VectorRandomizer()
+    public IEnumerator _VectorRandomizer()
     {
         while(true)
         {

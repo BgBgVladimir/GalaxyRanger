@@ -3,12 +3,14 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Unit:MonoBehaviour
 {
-    [SerializeField] public int health { get; private set; } = 600;
-    [SerializeField] public int damage { get; private set; } = 100;
+    [SerializeField] public int health  = 600;
+    [SerializeField] public int damage  = 100;
+
     public MoweBehaviour _moweBehaviour;
     public RotationBehaviour _rotationBehaviour;
     public AttackBehaviour _attackBehaviour;
-    public CollisionBehaviour _collisionBehaviour;
+    public TriggerBehaviour _collisionBehaviour;
+    public DestroyBehaviour _destroyBehaviour;
 
     private void Start()
     {
@@ -16,45 +18,52 @@ public class Unit:MonoBehaviour
     }
     private void Update()
     {
-        if(_moweBehaviour != null &&_moweBehaviour._rigidBody2D==null) InitMoweBehaviour();
-        _moweBehaviour?.Mowe();
-
-        if(_rotationBehaviour != null && _rotationBehaviour._transform==null) InitRotationBehaviour();
+        ForceInitBehaviours();
         _rotationBehaviour?.Rotate();
-
-        if(_attackBehaviour!=null&&_attackBehaviour._transform==null) InitAttackBehaviour();
+        _moweBehaviour?.Update();
         _attackBehaviour?.Attack();
     }
     private void OnDisable()
     {
         Services.Units.Remove(this);
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnDestroy()
     {
-        if(_collisionBehaviour!=null&&_collisionBehaviour.unit==null) InitCollisionBehaviour();
-        _collisionBehaviour?.OnCollisionEnter2D(collision);
+        if(!this.gameObject.scene.isLoaded) return;
+        ForceInitBehaviours();
+        _destroyBehaviour?.OnUnitDestroy();
     }
 
-    private void InitMoweBehaviour()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        _moweBehaviour=Instantiate(_moweBehaviour);
-        _moweBehaviour.Init(GetComponent<Rigidbody2D>());
+        ForceInitBehaviours();
+        _collisionBehaviour?.OnTriggerEnter2D(collision);
     }
-    private void InitRotationBehaviour()
+
+    private ScriptableBehaviour InitBehaviour(ScriptableBehaviour behaviour)
     {
-        _rotationBehaviour=Instantiate(_rotationBehaviour);
-        _rotationBehaviour.Init(transform);
+        ScriptableBehaviour newInstance=Instantiate(behaviour);
+        newInstance.mainInstance=false;
+        newInstance.Init(this);
+        return newInstance;
     }
-    private void InitAttackBehaviour()
+
+    public void ForceInitBehaviours()
     {
-        _attackBehaviour=Instantiate(_attackBehaviour);
-        _attackBehaviour.Init(transform);
-    }
-    private void InitCollisionBehaviour()
-    {
-        _collisionBehaviour=Instantiate(_collisionBehaviour);
-        _collisionBehaviour.Init(this);
+        if(_collisionBehaviour?.mainInstance==true)
+            _collisionBehaviour=(TriggerBehaviour)InitBehaviour(_collisionBehaviour);
+
+        if(_moweBehaviour?.mainInstance==true)
+            _moweBehaviour=(MoweBehaviour)InitBehaviour(_moweBehaviour);
+
+        if(_rotationBehaviour?.mainInstance==true)
+            _rotationBehaviour=(RotationBehaviour)InitBehaviour(_rotationBehaviour);
+
+        if(_attackBehaviour?.mainInstance==true)
+            _attackBehaviour=(AttackBehaviour)InitBehaviour(_attackBehaviour);
+
+        if(_destroyBehaviour?.mainInstance==true)
+            _destroyBehaviour=(DestroyBehaviour)InitBehaviour(_destroyBehaviour);
     }
 
     public void Kill()
@@ -64,6 +73,10 @@ public class Unit:MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         health-=(int)damageAmount;
+        if(health<=0)
+        {
+            Kill();
+        }
     }
 
 }

@@ -5,18 +5,21 @@ using UnityEngine;
 public class AIAttackPlayerBehaviour:AttackBehaviour
 {
     public int minDelay, maxDelay;
-    public override void Init(Transform transform)
+    public override void Init(Unit _unit)
     {
-        _transform=transform;
-        transform.GetComponent<Unit>().StartCoroutine(attackCoroutine());
+        unit=_unit;
+        _transform=_unit.transform;
+        _transform.GetComponent<Unit>().StartCoroutine(attackCoroutine());
     }
     public override void Attack()
     {
     }
     private void createBullet()
     {
+        if(Services.instance.Player==null) return;
         GameObject shot = GameObject.Instantiate(shotPrefab,_transform.position,Quaternion.identity);
         Unit shotUnit = shot.GetComponent<Unit>();
+        shotUnit.ForceInitBehaviours();
         shotUnit._moweBehaviour.SetTarget(Services.instance.Player.transform);
         shotUnit._rotationBehaviour.SetTarget(Services.instance.Player.transform);
         shotUnit._collisionBehaviour.AddIgnorableTag(TagsList.enemy);

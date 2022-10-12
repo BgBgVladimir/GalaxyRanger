@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,10 @@ public class TagFilter
 {
     public List<TagsList> tags;
 
+    public bool HasTag(string tag)
+    {
+        return HasTag(Enum.Parse<TagsList>(tag));
+    }
     public bool HasTag(TagsList tag)
     {
         foreach(TagsList a in tags)

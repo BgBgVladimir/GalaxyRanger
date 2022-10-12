@@ -4,9 +4,10 @@ using UnityEngine;
 public class AILookAtTargetRotationBehaviour: RotationBehaviour
 {
     [SerializeField] private Transform _target;
-    public override void Init(Transform transform)
+    public override void Init(Unit _unit)
     {
-        _transform=transform;
+        unit=_unit;
+        _transform=_unit.transform;
     }
 
     public override void Rotate()
